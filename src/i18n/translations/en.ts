@@ -1,3 +1,4 @@
+import devroastPreview from "@/data/content/devroast-preview.png";
 import mestreNozaPreview from "@/data/content/mestre-noza-preview.png";
 import type { TranslationDictionary } from "../types";
 
@@ -16,7 +17,7 @@ export const en: TranslationDictionary = {
     { label: "Contact", href: "#contact" }
   ],
   hero: {
-    location: "Brazil",
+    location: "Available",
     name: "Joao Pedro Galiza",
     role: "Full-Stack Developer",
     summary:
@@ -75,7 +76,7 @@ export const en: TranslationDictionary = {
       {
         degree: "Information Systems",
         institution: "Centro Universitario Paraiso (UniFAP)",
-        period: "2022 - Present",
+        period: "2023 - Present",
         description:
           "Undergraduate program focused on software, systems, technology, and digital product development."
       }
@@ -96,6 +97,8 @@ export const en: TranslationDictionary = {
           "Platform for analyzing code snippets with a focus on usability and user experience.",
         liveDemoHref: "https://devroast-five.vercel.app/",
         githubHref: "https://github.com/jpgaliza",
+        image: devroastPreview,
+        imageAlt: "Preview of DevRoast homepage",
         tags: ["Full-Stack", "UX", "Code Analysis"]
       },
       {
@@ -113,6 +116,15 @@ export const en: TranslationDictionary = {
     eyebrow: "Get in touch",
     heading: "Contact",
     body: "Available for projects, collaborations, and opportunities focused on building high-performance digital experiences.",
-    email: "jpfgaliza@gmail.com"
+    form: {
+      nameLabel: "Your name",
+      namePlaceholder: "How should I call you?",
+      subjectLabel: "Subject",
+      subjectPlaceholder: "What do you want to talk about?",
+      messageLabel: "What you want to send",
+      messagePlaceholder: "Tell me a bit about your idea, project, or opportunity.",
+      buttonLabel: "Get in touch",
+      helperText: "The button opens Gmail with the subject and message already filled in."
+    }
   }
 };

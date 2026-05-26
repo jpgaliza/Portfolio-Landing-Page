@@ -76,6 +76,15 @@ export type TranslationDictionary = {
     eyebrow: string;
     heading: string;
     body: string;
-    email: string;
+    form: {
+      nameLabel: string;
+      namePlaceholder: string;
+      subjectLabel: string;
+      subjectPlaceholder: string;
+      messageLabel: string;
+      messagePlaceholder: string;
+      buttonLabel: string;
+      helperText: string;
+    };
   };
 };

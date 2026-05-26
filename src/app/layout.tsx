@@ -7,13 +7,13 @@ import "@/styles/globals.css";
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
-  display: "swap"
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
     default: siteConfig.title,
-    template: `%s | ${siteConfig.name}`
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "Next.js",
     "React",
     "TypeScript",
-    "Portfolio"
+    "Portfolio",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     alternateLocale: ["pt_BR"],
-    siteName: siteConfig.name
+    siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
-    description: siteConfig.description
+    description: siteConfig.description,
   },
   robots: {
     index: true,
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
       "max-image-preview": "large",
-      "max-snippet": -1
-    }
-  }
+      "max-snippet": -1,
+    },
+  },
 };
 
 type RootLayoutProps = Readonly<{

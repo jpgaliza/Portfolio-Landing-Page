@@ -20,6 +20,10 @@ type MotionLinkProps = HTMLMotionProps<"a"> & {
   children: ReactNode;
 };
 
+function mergeClassNames(...classes: Array<string | undefined>) {
+  return classes.filter(Boolean).join(" ");
+}
+
 export function MotionSection({
   children,
   className,
@@ -46,7 +50,7 @@ export function MotionCard({ children, className, ...props }: MotionCardProps) {
 
   return (
     <motion.div
-      className={className}
+      className={mergeClassNames("card-hover-border", className)}
       whileHover={reduceMotion ? undefined : { y: -3 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
       {...props}
@@ -65,7 +69,7 @@ export function MotionArticle({
 
   return (
     <motion.article
-      className={className}
+      className={mergeClassNames("card-hover-border", className)}
       whileHover={reduceMotion ? undefined : { y: -3 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
       {...props}
