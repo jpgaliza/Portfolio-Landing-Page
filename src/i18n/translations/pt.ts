@@ -76,7 +76,7 @@ export const pt: TranslationDictionary = {
       {
         degree: "Sistemas de Informação",
         institution: "Centro Universitário Paraíso (UniFAP)",
-        period: "2023 - Presente",
+        period: "2024 - Presente",
         description:
           "Graduação voltada a software, sistemas, tecnologia e desenvolvimento de produtos digitais."
       }
