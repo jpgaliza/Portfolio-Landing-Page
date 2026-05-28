@@ -34,7 +34,13 @@ function FlagIcon({ locale }: FlagIconProps) {
           strokeLinejoin="round"
           strokeWidth="1.4"
         />
-        <circle cx="12" cy="8" r="2.2" stroke="currentColor" strokeWidth="1.4" />
+        <circle
+          cx="12"
+          cy="8"
+          r="2.2"
+          stroke="currentColor"
+          strokeWidth="1.4"
+        />
       </svg>
     );
   }
@@ -55,7 +61,11 @@ function FlagIcon({ locale }: FlagIconProps) {
         x="0.5"
         y="0.5"
       />
-      <path d="M1 4.5h22M1 8h22M1 11.5h22" stroke="currentColor" strokeWidth="1.2" />
+      <path
+        d="M1 4.5h22M1 8h22M1 11.5h22"
+        stroke="currentColor"
+        strokeWidth="1.2"
+      />
       <path d="M1 1h9v7H1V1Z" fill="currentColor" opacity="0.75" />
     </svg>
   );
@@ -93,7 +103,8 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { locale, t, toggleLocale } = useTranslations();
   const currentLocale = locale === "en" ? "EN" : "PT";
-  const navigationLabel = locale === "pt" ? "Navegação principal" : "Primary navigation";
+  const navigationLabel =
+    locale === "pt" ? "Navegação principal" : "Primary navigation";
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -149,18 +160,42 @@ export function SiteHeader() {
           <button
             aria-controls="mobile-navigation"
             aria-expanded={menuOpen}
-            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              menuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
             className="inline-flex shrink-0 items-center justify-center rounded-md border border-blue-300/20 bg-blue-300/[0.07] p-2 text-blue-100 shadow-[inset_0_1px_0_rgb(255_255_255_/_0.08)] transition duration-200 hover:border-blue-200/35 hover:bg-blue-300/[0.12] sm:hidden"
             onClick={() => setMenuOpen((value) => !value)}
             type="button"
           >
             {menuOpen ? (
-              <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24">
-                <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+              <svg
+                aria-hidden="true"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 6l12 12M18 6 6 18"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.8"
+                />
               </svg>
             ) : (
-              <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24">
-                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+              <svg
+                aria-hidden="true"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4 7h16M4 12h16M4 17h16"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.8"
+                />
               </svg>
             )}
           </button>
@@ -211,7 +246,9 @@ export function SiteHeader() {
                     onClick={() => setMenuOpen(false)}
                   >
                     <span>{item.label}</span>
-                    <span className="text-xs text-muted">{item.href.replace("#", "")}</span>
+                    <span className="text-xs text-muted">
+                      {item.href.replace("#", "")}
+                    </span>
                   </a>
                 </li>
               ))}

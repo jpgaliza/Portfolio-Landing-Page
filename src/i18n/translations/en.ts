@@ -39,8 +39,8 @@ export const en: TranslationDictionary = {
     eyebrow: "Profile",
     heading: "About",
     body: [
-      "Joao Pedro Galiza is a Full-Stack Developer focused on creating interfaces that balance strong visual presentation, usability, and performance.",
-      "His work connects frontend execution with practical product thinking, building digital experiences that are clear, fast, and conversion-oriented."
+      "I am an Information Systems student focused on Full Stack Web development. Combining technologies like React, Next.js, and Laravel, I build end-to-end solutions that integrate intuitive interfaces, efficient APIs, and artificial intelligence.",
+      "I enjoy turning ideas into real digital products, connecting technical code execution with a practical impact on the user experience."
     ]
   },
   skills: {

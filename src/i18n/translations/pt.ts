@@ -39,8 +39,8 @@ export const pt: TranslationDictionary = {
     eyebrow: "Perfil",
     heading: "Sobre",
     body: [
-      "João Pedro Galiza é Desenvolvedor Full-Stack com foco em criar interfaces que equilibram apresentação visual, usabilidade e performance.",
-      "Seu trabalho conecta execução frontend com pensamento de produto, construindo experiências digitais claras, rápidas e orientadas à conversão."
+      "Sou estudante de Sistemas de Informação com foco em desenvolvimento Web Full Stack. Unindo tecnologias como React, Next.js e Laravel, crio soluções completas que integram interfaces intuitivas, APIs eficientes e inteligência artificial.",
+      "Gosto de transformar ideias em produtos digitais reais, conectando a execução técnica do código ao impacto prático na experiência do usuário."
     ]
   },
   skills: {
