@@ -90,8 +90,10 @@ function LinkedInIcon() {
 export function SiteHeader() {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { locale, t, toggleLocale } = useTranslations();
   const currentLocale = locale === "en" ? "EN" : "PT";
+  const navigationLabel = locale === "pt" ? "Navegação principal" : "Primary navigation";
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -109,10 +111,12 @@ export function SiteHeader() {
       animate={{ y: hidden ? "-100%" : "0%", opacity: hidden ? 0.88 : 1 }}
       className="sticky top-0 z-20 border-b border-white/10 bg-background/70 shadow-[0_1px_0_rgb(255_255_255_/_0.04)] backdrop-blur-2xl"
       initial={false}
-      onFocusCapture={() => setHidden(false)}
+      onFocusCapture={() => {
+        setHidden(false);
+      }}
       transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
     >
-      <Container className="flex min-h-16 flex-wrap items-center justify-between gap-x-4 gap-y-3 py-3 sm:min-h-20 sm:flex-nowrap sm:py-0">
+      <Container className="relative flex min-h-16 flex-wrap items-center justify-between gap-x-4 gap-y-3 py-3 sm:min-h-20 sm:flex-nowrap sm:py-0">
         <div className="flex shrink-0 items-center gap-3">
           <a
             href="#hero"
@@ -142,9 +146,27 @@ export function SiteHeader() {
           </div>
         </div>
         <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:gap-3">
+          <button
+            aria-controls="mobile-navigation"
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            className="inline-flex shrink-0 items-center justify-center rounded-md border border-blue-300/20 bg-blue-300/[0.07] p-2 text-blue-100 shadow-[inset_0_1px_0_rgb(255_255_255_/_0.08)] transition duration-200 hover:border-blue-200/35 hover:bg-blue-300/[0.12] sm:hidden"
+            onClick={() => setMenuOpen((value) => !value)}
+            type="button"
+          >
+            {menuOpen ? (
+              <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24">
+                <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+              </svg>
+            ) : (
+              <svg aria-hidden="true" className="h-4 w-4" fill="none" viewBox="0 0 24 24">
+                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
+              </svg>
+            )}
+          </button>
           <nav
-            aria-label={locale === "pt" ? "Navegação principal" : "Primary navigation"}
-            className="max-w-[calc(100vw-7rem)] overflow-x-auto sm:max-w-none sm:overflow-visible"
+            aria-label={navigationLabel}
+            className="hidden max-w-[calc(100vw-7rem)] overflow-x-auto sm:block sm:max-w-none sm:overflow-visible"
           >
             <ul className="flex w-max items-center justify-end gap-1 text-xs text-muted sm:grid sm:w-[32rem] sm:grid-cols-6 sm:gap-0 sm:text-sm lg:w-[38rem]">
               {t.navigation.map((item) => (
@@ -173,6 +195,50 @@ export function SiteHeader() {
             <FlagIcon locale={locale} />
             {currentLocale}
           </button>
+        </div>
+        <div
+          aria-hidden={!menuOpen}
+          className={`absolute left-0 right-0 top-full z-30 border-b border-white/10 bg-background/95 px-4 pb-4 pt-2 shadow-[0_16px_40px_rgba(0,0,0,0.24)] backdrop-blur-2xl transition duration-200 sm:hidden ${menuOpen ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`}
+          id="mobile-navigation"
+        >
+          <nav aria-label={navigationLabel}>
+            <ul className="space-y-1">
+              {t.navigation.map((item) => (
+                <li key={item.href}>
+                  <a
+                    className="flex items-center justify-between rounded-xl border border-white/8 bg-white/4 px-4 py-3 text-sm font-medium text-foreground transition duration-200 hover:border-blue-200/25 hover:bg-blue-300/[0.08] focus-visible:border-blue-200/25 focus-visible:bg-blue-300/[0.08]"
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <span>{item.label}</span>
+                    <span className="text-xs text-muted">{item.href.replace("#", "")}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="mt-3 flex items-center gap-2">
+            <a
+              aria-label="GitHub - Joao Pedro Galiza"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/8 bg-white/4 px-4 py-3 text-sm text-blue-100 transition duration-200 hover:border-blue-200/25 hover:bg-blue-300/[0.08]"
+              href={siteConfig.github}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <GitHubIcon />
+              GitHub
+            </a>
+            <a
+              aria-label="LinkedIn - Joao Pedro Galiza"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/8 bg-white/4 px-4 py-3 text-sm text-blue-100 transition duration-200 hover:border-blue-200/25 hover:bg-blue-300/[0.08]"
+              href={siteConfig.linkedin}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <LinkedInIcon />
+              LinkedIn
+            </a>
+          </div>
         </div>
       </Container>
     </motion.header>
