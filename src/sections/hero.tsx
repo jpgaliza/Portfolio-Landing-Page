@@ -16,9 +16,15 @@ export function Hero() {
       <Container>
         <div className="grid gap-8 sm:gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-12">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent sm:text-sm sm:tracking-[0.26em]">
-              {t.hero.location}
-            </p>
+            <div className="inline-flex items-center gap-2.5">
+              <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent sm:text-xs sm:tracking-[0.22em]">
+                {t.hero.location}
+              </p>
+            </div>
             <h1 className="mt-5 max-w-4xl bg-gradient-to-br from-white via-blue-50 to-blue-300 bg-clip-text text-4xl font-semibold tracking-normal text-transparent min-[380px]:text-5xl sm:mt-6 sm:text-6xl lg:text-8xl">
               {t.hero.name}
             </h1>
@@ -44,16 +50,19 @@ export function Hero() {
             </div>
           </div>
           <MotionCard className="glass-panel rounded-lg p-5 sm:p-7 lg:p-8">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-200 sm:text-sm sm:tracking-[0.22em]">
+            <h2 className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-blue-200 sm:text-xs sm:tracking-[0.22em]">
               {t.hero.focusLabel}
             </h2>
-            <ul className="mt-5 space-y-3 sm:mt-6 sm:space-y-4">
-              {t.hero.highlights.map((highlight) => (
+            <ul className="mt-4 divide-y divide-white/8 sm:mt-5">
+              {t.hero.highlights.map((highlight, index) => (
                 <li
                   key={highlight}
-                  className="border-l border-blue-300/25 pl-4 text-sm leading-7 text-foreground sm:text-base"
+                  className="flex items-start gap-3.5 py-3.5 first:pt-0 last:pb-0 text-sm leading-7 text-foreground sm:text-base"
                 >
-                  {highlight}
+                  <span className="mt-1 font-mono text-xs font-medium text-accent/80">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span>{highlight}</span>
                 </li>
               ))}
             </ul>

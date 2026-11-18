@@ -10,10 +10,12 @@ type MotionSectionProps = HTMLMotionProps<"section"> & {
 
 type MotionCardProps = HTMLMotionProps<"div"> & {
   children: ReactNode;
+  delay?: number;
 };
 
 type MotionArticleProps = HTMLMotionProps<"article"> & {
   children: ReactNode;
+  delay?: number;
 };
 
 type MotionLinkProps = HTMLMotionProps<"a"> & {
@@ -45,14 +47,17 @@ export function MotionSection({
   );
 }
 
-export function MotionCard({ children, className, ...props }: MotionCardProps) {
+export function MotionCard({ children, className, delay, ...props }: MotionCardProps) {
   const reduceMotion = useReducedMotion();
 
   return (
     <motion.div
       className={mergeClassNames("card-hover-border", className)}
+      initial={reduceMotion || delay === undefined ? false : { opacity: 0, y: 14 }}
+      whileInView={reduceMotion || delay === undefined ? undefined : { opacity: 1, y: 0 }}
+      viewport={delay === undefined ? undefined : { once: true, amount: 0.15 }}
       whileHover={reduceMotion ? undefined : { y: -3 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
+      transition={{ duration: 0.38, delay: delay ?? 0, ease: [0.22, 1, 0.36, 1] }}
       {...props}
     >
       {children}
@@ -63,6 +68,7 @@ export function MotionCard({ children, className, ...props }: MotionCardProps) {
 export function MotionArticle({
   children,
   className,
+  delay,
   ...props
 }: MotionArticleProps) {
   const reduceMotion = useReducedMotion();
@@ -70,8 +76,11 @@ export function MotionArticle({
   return (
     <motion.article
       className={mergeClassNames("card-hover-border", className)}
+      initial={reduceMotion || delay === undefined ? false : { opacity: 0, y: 14 }}
+      whileInView={reduceMotion || delay === undefined ? undefined : { opacity: 1, y: 0 }}
+      viewport={delay === undefined ? undefined : { once: true, amount: 0.15 }}
       whileHover={reduceMotion ? undefined : { y: -3 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
+      transition={{ duration: 0.38, delay: delay ?? 0, ease: [0.22, 1, 0.36, 1] }}
       {...props}
     >
       {children}

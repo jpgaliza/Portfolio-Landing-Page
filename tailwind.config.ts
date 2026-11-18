@@ -31,7 +31,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-manrope)", "system-ui", "sans-serif"],
-        mono: ["Menlo", "monospace"]
+        mono: ["var(--font-mono)", "Menlo", "monospace"]
       }
     }
   },

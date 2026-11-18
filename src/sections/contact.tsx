@@ -30,7 +30,8 @@ export function Contact() {
         .join("\n"),
     );
 
-    window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}&su=${subject}&body=${body}&tf=1`;
+    const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}&su=${subject}&body=${body}&tf=1`;
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -98,6 +99,13 @@ export function Contact() {
               {t.contact.form.helperText}
             </p>
             <div className="flex flex-wrap gap-3">
+              <MotionLink
+                aria-label={`Email - ${siteConfig.email}`}
+                className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-muted transition hover:border-blue-200/25 hover:text-foreground"
+                href={`mailto:${siteConfig.email}`}
+              >
+                {siteConfig.email}
+              </MotionLink>
               {t.hero.socials.map((social) => (
                 <MotionLink
                   aria-label={`${social.label} - João Pedro Galiza`}

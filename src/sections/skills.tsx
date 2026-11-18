@@ -17,9 +17,10 @@ export function Skills() {
           description={t.skills.description}
         />
         <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5 lg:mt-12 lg:grid-cols-3">
-          {t.skills.groups.map((group) => (
+          {t.skills.groups.map((group, index) => (
             <MotionCard
               className="glass-panel rounded-lg p-5 transition duration-200 hover:-translate-y-1 hover:border-blue-200/25 sm:p-6"
+              delay={index * 0.06}
               key={group.title}
             >
               <h3 className="text-lg font-semibold text-foreground sm:text-xl">

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "@/i18n";
 import { siteConfig } from "@/lib/site";
 import { Container } from "./container";
@@ -101,7 +101,31 @@ export function SiteHeader() {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState("#hero");
   const { locale, t, toggleLocale } = useTranslations();
+
+  useEffect(() => {
+    const sectionIds = ["hero", "about", "skills", "academic", "projects", "contact"];
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveHref(`#${entry.target.id}`);
+          }
+        }
+      },
+      { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+    );
+
+    for (const el of elements) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
   const currentLocale = locale === "en" ? "EN" : "PT";
   const navigationLabel =
     locale === "pt" ? "Navegação principal" : "Primary navigation";
@@ -131,7 +155,7 @@ export function SiteHeader() {
         <div className="flex shrink-0 items-center gap-3">
           <a
             href="#hero"
-            className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-xs font-bold tracking-[0.22em] text-transparent sm:text-sm"
+            className="bg-gradient-to-r from-white to-blue-200 bg-clip-text font-mono text-xs font-bold tracking-[0.22em] text-transparent sm:text-sm"
           >
             {t.meta.portfolioLabel}
           </a>
@@ -204,19 +228,30 @@ export function SiteHeader() {
             className="hidden max-w-[calc(100vw-7rem)] overflow-x-auto sm:block sm:max-w-none sm:overflow-visible"
           >
             <ul className="flex w-max items-center justify-end gap-1 text-xs text-muted sm:grid sm:w-[32rem] sm:grid-cols-6 sm:gap-0 sm:text-sm lg:w-[38rem]">
-              {t.navigation.map((item) => (
-                <li
-                  className="relative min-w-0 before:hidden before:absolute before:left-0 before:top-1/2 before:h-4 before:w-px before:-translate-y-1/2 before:bg-white/10 sm:before:block sm:first:before:hidden"
-                  key={item.href}
-                >
-                  <a
-                    className="relative block px-2.5 py-2 text-center transition duration-200 after:absolute after:bottom-1 after:left-2.5 after:h-px after:w-[calc(100%-1.25rem)] after:origin-right after:scale-x-0 after:bg-blue-300 after:transition-transform after:duration-300 after:ease-out hover:text-foreground hover:after:scale-x-100 focus-visible:after:scale-x-100 sm:px-1 sm:after:left-1/2 sm:after:w-10 sm:after:-translate-x-1/2 lg:after:w-12"
-                    href={item.href}
+              {t.navigation.map((item) => {
+                const isActive = activeHref === item.href;
+                return (
+                  <li
+                    className="relative min-w-0 before:hidden before:absolute before:left-0 before:top-1/2 before:h-4 before:w-px before:-translate-y-1/2 before:bg-white/10 sm:before:block sm:first:before:hidden"
+                    key={item.href}
                   >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+                    <a
+                      aria-current={isActive ? "page" : undefined}
+                      className={`relative block px-2.5 py-2 text-center transition duration-200 hover:text-foreground sm:px-1 ${isActive ? "text-foreground" : ""}`}
+                      href={item.href}
+                    >
+                      {item.label}
+                      {isActive ? (
+                        <motion.span
+                          className="absolute bottom-1 left-2.5 right-2.5 h-px bg-blue-300 sm:left-1/2 sm:right-auto sm:w-10 sm:-translate-x-1/2 lg:w-12"
+                          layoutId="active-nav"
+                          transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                        />
+                      ) : null}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
           <button
@@ -233,7 +268,7 @@ export function SiteHeader() {
         </div>
         <div
           aria-hidden={!menuOpen}
-          className={`absolute left-0 right-0 top-full z-30 border-b border-white/10 bg-background/95 px-4 pb-4 pt-2 shadow-[0_16px_40px_rgba(0,0,0,0.24)] backdrop-blur-2xl transition duration-200 sm:hidden ${menuOpen ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`}
+          className={`absolute left-0 right-0 top-full z-30 border-b border-white/10 bg-background px-4 pb-4 pt-2 shadow-[0_24px_48px_rgba(0,0,0,0.65)] backdrop-blur-2xl transition duration-200 sm:hidden ${menuOpen ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`}
           id="mobile-navigation"
         >
           <nav aria-label={navigationLabel}>

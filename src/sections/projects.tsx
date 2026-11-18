@@ -18,24 +18,30 @@ export function Projects() {
           description={t.projects.description}
         />
         <div className="mt-8 grid gap-5 sm:mt-10 lg:mt-12 lg:grid-cols-2">
-          {t.projects.items.map((project) => (
+          {t.projects.items.map((project, index) => (
             <MotionArticle
-              className="glass-panel flex min-h-0 flex-col rounded-lg p-5 transition duration-200 hover:-translate-y-1 hover:border-blue-200/25 sm:p-7 lg:min-h-72"
+              className="group glass-panel flex min-h-0 flex-col rounded-lg p-5 transition duration-200 hover:-translate-y-1 hover:border-blue-200/25 sm:p-7 lg:min-h-72"
+              delay={index * 0.05}
               key={project.title}
             >
               {project.image ? (
                 <div className="relative mb-5 overflow-hidden rounded-md border border-white/10 bg-white/[0.04] sm:mb-6">
                   <Image
                     alt={project.imageAlt ?? project.title}
-                    className="aspect-video h-auto w-full object-cover"
+                    className="aspect-video h-auto w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                     placeholder="blur"
                     src={project.image}
                   />
                 </div>
               ) : null}
-              <h3 className="text-lg font-semibold text-foreground sm:text-xl">
-                {project.title}
-              </h3>
+              <div className="flex items-baseline justify-between gap-3">
+                <h3 className="text-lg font-semibold text-foreground sm:text-xl">
+                  {project.title}
+                </h3>
+                <span className="font-mono text-xs text-muted/70">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
               <p className="mt-4 flex-1 text-sm leading-7 text-muted sm:mt-5 sm:text-base sm:leading-8">
                 {project.description}
               </p>
