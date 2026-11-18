@@ -94,6 +94,7 @@ export const pt: TranslationDictionary = {
         title: "Plafon",
         description:
           "Aplicação web de controle financeiro pessoal pensada para simplificar o registro de receitas, teto de gastos e assinaturas recorrentes. Construída com Next.js App Router, Supabase, Recharts e suporte bilíngue.",
+        liveDemoHref: "https://plafonn.vercel.app/",
         githubHref: "https://github.com/jpgaliza/plafon",
         image: plafonPreview,
         imageAlt: "Preview da página inicial do Plafon",

@@ -94,6 +94,7 @@ export const en: TranslationDictionary = {
         title: "Plafon",
         description:
           "Personal finance web app designed for fast transaction logging, spending-cap tracking, and subscription monitoring. Built with Next.js App Router, Supabase, Recharts, and i18n support.",
+        liveDemoHref: "https://plafonn.vercel.app/",
         githubHref: "https://github.com/jpgaliza/plafon",
         image: plafonPreview,
         imageAlt: "Preview of Plafon homepage",
