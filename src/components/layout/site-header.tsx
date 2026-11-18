@@ -243,7 +243,7 @@ export function SiteHeader() {
                       {item.label}
                       {isActive ? (
                         <motion.span
-                          className="absolute bottom-1 left-2.5 right-2.5 h-px bg-blue-300 sm:left-1/2 sm:right-auto sm:w-10 sm:-translate-x-1/2 lg:w-12"
+                          className="absolute bottom-1 inset-x-3 h-px bg-blue-300 lg:inset-x-4"
                           layoutId="active-nav"
                           transition={{ type: "spring", stiffness: 380, damping: 32 }}
                         />

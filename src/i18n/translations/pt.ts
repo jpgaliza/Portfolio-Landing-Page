@@ -1,6 +1,9 @@
+import atsResumePreview from "@/data/content/ats-resume-preview.webp";
 import devroastPreview from "@/data/content/devroast-preview.png";
 import plafonPreview from "@/data/content/plafon-preview.png";
 import ranked11Preview from "@/data/content/ranked11-preview.png";
+import socceriqPreview from "@/data/content/socceriq-preview.png";
+import studyratsPreview from "@/data/content/studyrats-preview.png";
 import type { TranslationDictionary } from "../types";
 
 export const pt: TranslationDictionary = {
@@ -18,18 +21,18 @@ export const pt: TranslationDictionary = {
     { label: "Contato", href: "#contact" }
   ],
   hero: {
-    location: "Crato, CE · Desenvolvedor Full Stack @ NExTI",
+    location: "Crato, CE · Desenvolvedor Full Stack",
     name: "João Pedro Galiza",
     role: "Desenvolvedor Full-Stack",
     summary:
-      "Construo aplicações web e mobile com React, Next.js, Laravel e bancos relacionais — da arquitetura de APIs à interface final.",
+      "Construo aplicações web com React, Next.js, TypeScript e Laravel, cuidando desde a arquitetura de APIs e bancos relacionais até a interface final.",
     primaryCta: "Ver Projetos",
     secondaryCta: "Contato",
     focusLabel: "Foco Técnico",
     highlights: [
-      "Frontend e Mobile com React, Next.js, TypeScript e React Native",
-      "APIs e backends em Laravel (PHP), Node.js e bancos MySQL/PostgreSQL",
-      "Arquiteturas local-first, containers Docker e automação com LLMs"
+      "Full Stack com React, Next.js, TypeScript e Laravel",
+      "APIs REST em PHP e Node.js com bancos MySQL e PostgreSQL",
+      "Arquiteturas local-first, containers Docker e integração com LLMs"
     ],
     socials: [
       { label: "GitHub", href: "https://github.com/jpgaliza" },
@@ -40,19 +43,19 @@ export const pt: TranslationDictionary = {
     eyebrow: "Perfil",
     heading: "Sobre",
     body: [
-      "Sou graduando em Sistemas de Informação na UniFAP (conclusão prevista para dezembro de 2027), em Crato (CE), e atuo como Desenvolvedor Full Stack na NExTI, trabalhando com React, Next.js, Laravel, PHP e MySQL.",
-      "Meu foco é resolver problemas práticos com código legível e arquitetura previsível — desde aplicações web com Supabase e testes E2E até sistemas em Docker com PostgreSQL, aplicativos mobile em React Native e ferramentas local-first integradas a modelos de linguagem via Ollama."
+      "Sou graduando em Sistemas de Informação na UniFAP, com conclusão prevista para dezembro de 2027, em Crato (CE). Trabalho com desenvolvimento web Full Stack usando React, Next.js, TypeScript, Laravel, PHP e MySQL.",
+      "Gosto de resolver problemas práticos com código limpo e arquitetura direta, seja em aplicações web com Supabase, sistemas em Docker com PostgreSQL ou ferramentas local-first integradas a modelos de linguagem via Ollama."
     ]
   },
   skills: {
     eyebrow: "Stack",
     heading: "Habilidades",
     description:
-      "Tecnologias e práticas aplicadas no desenvolvimento de produtos web e mobile em produção.",
+      "Tecnologias e práticas que utilizo no desenvolvimento de aplicações web.",
     groups: [
       {
-        title: "Frontend & Mobile",
-        items: ["React", "Next.js", "TypeScript", "React Native", "Vue.js", "Tailwind CSS"]
+        title: "Frontend",
+        items: ["React", "Next.js", "TypeScript", "JavaScript", "Vue.js", "Tailwind CSS"]
       },
       {
         title: "Backend & Dados",
@@ -60,7 +63,7 @@ export const pt: TranslationDictionary = {
       },
       {
         title: "Infra & Práticas",
-        items: ["Docker", "APIs REST", "Testes (Vitest / Playwright)", "Acessibilidade", "Git"]
+        items: ["Docker", "APIs REST", "UI Responsiva", "Acessibilidade", "Git"]
       }
     ]
   },
@@ -71,10 +74,10 @@ export const pt: TranslationDictionary = {
     items: [
       {
         degree: "Bacharelado em Sistemas de Informação",
-        institution: "Centro Universitário Paraíso (UniFAP) — Crato, CE",
-        period: "2023 – Dez/2027 (Previsão)",
+        institution: "Centro Universitário Paraíso (UniFAP), Crato, CE",
+        period: "2023 a Dez/2027 (Previsão)",
         description:
-          "Graduação com foco em engenharia de software, estruturas de dados, bancos de dados relacionais, sistemas distribuídos e desenvolvimento de aplicações web e mobile."
+          "Graduação voltada a engenharia de software, estruturas de dados, bancos de dados relacionais, sistemas distribuídos e desenvolvimento de aplicações web."
       }
     ]
   },
@@ -82,7 +85,7 @@ export const pt: TranslationDictionary = {
     eyebrow: "Trabalhos Selecionados",
     heading: "Projetos",
     description:
-      "Projetos públicos selecionados com foco em problema resolvido, arquitetura de dados e entrega prática.",
+      "Projetos públicos selecionados com foco no problema resolvido, arquitetura de dados e entrega prática.",
     liveDemoLabel: "Demo ao vivo",
     githubLabel: "GitHub",
     noLiveDemoLabel: "Execução local",
@@ -90,7 +93,7 @@ export const pt: TranslationDictionary = {
       {
         title: "Plafon",
         description:
-          "Aplicação mobile-first de controle financeiro pessoal que simplifica o registro de receitas, teto de gastos e assinaturas recorrentes. Construída com Next.js App Router, Supabase, Recharts e suporte bilíngue.",
+          "Aplicação web de controle financeiro pessoal pensada para simplificar o registro de receitas, teto de gastos e assinaturas recorrentes. Construída com Next.js App Router, Supabase, Recharts e suporte bilíngue.",
         githubHref: "https://github.com/jpgaliza/plafon",
         image: plafonPreview,
         imageAlt: "Preview da página inicial do Plafon",
@@ -99,26 +102,30 @@ export const pt: TranslationDictionary = {
       {
         title: "Ranked11",
         description:
-          "Jogo diário de trivia sobre Copas do Mundo com desafio sincronizado à meia-noite UTC e pontuação por distância. Desenvolvido em Next.js 15, TypeScript, dnd-kit, next-intl e cobertura de testes com Vitest e Playwright.",
+          "Jogo diário de trivia sobre Copas do Mundo com desafio sincronizado à meia-noite UTC e pontuação por distância. Desenvolvido em Next.js 15, TypeScript, dnd-kit e next-intl.",
         liveDemoHref: "https://ranked11.vercel.app",
         githubHref: "https://github.com/jpgaliza/Ranked11",
         image: ranked11Preview,
         imageAlt: "Preview da página inicial do Ranked11",
-        tags: ["Next.js 15", "TypeScript", "Vitest", "Playwright"]
+        tags: ["Next.js 15", "TypeScript", "dnd-kit", "next-intl"]
       },
       {
-        title: "ATS Resume Studio",
+        title: "ATS Resume",
         description:
-          "Estúdio de currículos local-first voltado à adequação para sistemas ATS sem expor dados pessoais na nuvem. Integra editor em React, API tipada com persistência em PostgreSQL/Drizzle, renderização PDF via Forme e endpoints compatíveis com Ollama.",
+          "Editor de currículos local-first voltado à adequação para sistemas ATS sem expor dados pessoais na nuvem. Integra interface em React, API tipada com PostgreSQL e Drizzle, geração de PDF via Forme e endpoints compatíveis com Ollama.",
         githubHref: "https://github.com/jpgaliza/ats-resume",
+        image: atsResumePreview,
+        imageAlt: "Preview do editor do ATS Resume",
         tags: ["React 19", "TypeScript", "PostgreSQL", "Ollama / Local-First"]
       },
       {
         title: "StudyRats",
         description:
-          "Plataforma de organização de estudos com aplicativo mobile em React Native (Expo) integrado a uma API REST em Laravel. Ambiente conteinerizado com Docker, Traefik e PostgreSQL em topologia master/réplica.",
+          "Plataforma de organização de estudos com frontend em React integrado a uma API REST em Laravel. Ambiente conteinerizado com Docker, Traefik e PostgreSQL em topologia master e réplica.",
         githubHref: "https://github.com/jpgaliza/StudyRats",
-        tags: ["React Native", "Laravel", "PostgreSQL", "Docker"]
+        image: studyratsPreview,
+        imageAlt: "Preview da tela inicial do StudyRats",
+        tags: ["React", "Laravel", "PostgreSQL", "Docker"]
       },
       {
         title: "DevRoast",
@@ -135,6 +142,8 @@ export const pt: TranslationDictionary = {
         description:
           "Quiz interativo sobre futebol estruturado em arquitetura monolítica moderna com Laravel 12 no backend, Vue.js 3 com Inertia.js na camada de interface e persistência em MySQL.",
         githubHref: "https://github.com/jpgaliza/SoccerIQ",
+        image: socceriqPreview,
+        imageAlt: "Preview da página inicial do SoccerIQ",
         tags: ["Laravel 12", "PHP", "Vue.js 3", "Inertia.js"]
       }
     ]
@@ -142,7 +151,7 @@ export const pt: TranslationDictionary = {
   contact: {
     eyebrow: "Entre em contato",
     heading: "Contato",
-    body: "Disponível para conversar sobre desenvolvimento full-stack, projetos técnicos e oportunidades de engenharia de software.",
+    body: "Disponível para conversar sobre desenvolvimento full-stack, projetos técnicos e oportunidades na área de software.",
     form: {
       nameLabel: "Seu nome",
       namePlaceholder: "Como devo te chamar?",
