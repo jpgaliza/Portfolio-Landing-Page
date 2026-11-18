@@ -155,8 +155,7 @@
       72px 72px,
       72px 72px,
       4px 4px;
-    mask-image: linear-gradient(to bottom, black, transparent 78%);
-    animation: grain-drift 10s steps(8, end) infinite;
+    mask-image: radial-gradient(ellipse 85% 65% at 50% 0%, black 35%, transparent 100%);
   }
 
   a {

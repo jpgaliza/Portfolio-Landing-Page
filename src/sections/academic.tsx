@@ -31,7 +31,7 @@ export function Academic() {
                     {item.institution}
                   </p>
                 </div>
-                <p className="w-fit rounded-full border border-blue-300/15 bg-blue-300/[0.06] px-3 py-1 text-xs font-semibold text-accent sm:text-sm">
+                <p className="w-fit rounded-full border border-blue-300/15 bg-blue-300/[0.06] px-3 py-1 font-mono text-xs font-medium text-accent sm:text-xs">
                   {item.period}
                 </p>
               </div>

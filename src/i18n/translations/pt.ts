@@ -1,5 +1,9 @@
+import atsResumePreview from "@/data/content/ats-resume-preview.webp";
 import devroastPreview from "@/data/content/devroast-preview.png";
-import mestreNozaPreview from "@/data/content/mestre-noza-preview.png";
+import plafonPreview from "@/data/content/plafon-preview.png";
+import ranked11Preview from "@/data/content/ranked11-preview.png";
+import socceriqPreview from "@/data/content/socceriq-preview.png";
+import studyratsPreview from "@/data/content/studyrats-preview.png";
 import type { TranslationDictionary } from "../types";
 
 export const pt: TranslationDictionary = {
@@ -17,18 +21,18 @@ export const pt: TranslationDictionary = {
     { label: "Contato", href: "#contact" }
   ],
   hero: {
-    location: "Disponível",
+    location: "Crato, CE · Desenvolvedor Full Stack",
     name: "João Pedro Galiza",
     role: "Desenvolvedor Full-Stack",
     summary:
-      "Desenvolvedor Full-Stack focado em criar interfaces de alta conversão e performance.",
+      "Construo aplicações web com React, Next.js, TypeScript e Laravel, cuidando desde a arquitetura de APIs e bancos relacionais até a interface final.",
     primaryCta: "Ver Projetos",
     secondaryCta: "Contato",
-    focusLabel: "Foco",
+    focusLabel: "Foco Técnico",
     highlights: [
-      "Interfaces de alta conversão",
-      "Aplicações web orientadas à performance",
-      "Desenvolvimento full-stack prático e organizado"
+      "Full Stack com React, Next.js, TypeScript e Laravel",
+      "APIs REST em PHP e Node.js com bancos MySQL e PostgreSQL",
+      "Arquiteturas local-first, containers Docker e integração com LLMs"
     ],
     socials: [
       { label: "GitHub", href: "https://github.com/jpgaliza" },
@@ -39,46 +43,41 @@ export const pt: TranslationDictionary = {
     eyebrow: "Perfil",
     heading: "Sobre",
     body: [
-      "Sou estudante de Sistemas de Informação com foco em desenvolvimento Web Full Stack. Unindo tecnologias como React, Next.js e Laravel, crio soluções completas que integram interfaces intuitivas, APIs eficientes e inteligência artificial.",
-      "Gosto de transformar ideias em produtos digitais reais, conectando a execução técnica do código ao impacto prático na experiência do usuário."
+      "Sou graduando em Sistemas de Informação na UniFAP, com conclusão prevista para dezembro de 2027, em Crato (CE). Trabalho com desenvolvimento web Full Stack usando React, Next.js, TypeScript, Laravel, PHP e MySQL.",
+      "Gosto de resolver problemas práticos com código limpo e arquitetura direta, seja em aplicações web com Supabase, sistemas em Docker com PostgreSQL ou ferramentas local-first integradas a modelos de linguagem via Ollama."
     ]
   },
   skills: {
-    eyebrow: "Capacidades",
+    eyebrow: "Stack",
     heading: "Habilidades",
     description:
-      "Tecnologias e práticas usadas para construir experiências web modernas e performáticas.",
+      "Tecnologias e práticas que utilizo no desenvolvimento de aplicações web.",
     groups: [
       {
         title: "Frontend",
-        items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"]
+        items: ["React", "Next.js", "TypeScript", "JavaScript", "Vue.js", "Tailwind CSS"]
       },
       {
-        title: "Backend",
-        items: ["Node.js", "APIs", "Bancos de Dados", "Autenticação", "Lógica de Servidor"]
+        title: "Backend & Dados",
+        items: ["Laravel", "PHP", "Node.js", "NestJS", "MySQL", "PostgreSQL", "Supabase"]
       },
       {
-        title: "Práticas",
-        items: [
-          "Design Responsivo",
-          "Acessibilidade",
-          "Performance",
-          "UI focada em Conversão"
-        ]
+        title: "Infra & Práticas",
+        items: ["Docker", "APIs REST", "UI Responsiva", "Acessibilidade", "Git"]
       }
     ]
   },
   academic: {
     eyebrow: "Educação",
     heading: "Acadêmico",
-    description: "Formação acadêmica e base de estudos em tecnologia.",
+    description: "Formação superior e base técnica em engenharia de software e sistemas.",
     items: [
       {
-        degree: "Sistemas de Informação",
-        institution: "Centro Universitário Paraíso (UniFAP)",
-        period: "2024 - Presente",
+        degree: "Bacharelado em Sistemas de Informação",
+        institution: "Centro Universitário Paraíso (UniFAP), Juazeiro do Norte, CE",
+        period: "2024 a Dez/2027 (Previsão)",
         description:
-          "Graduação voltada a software, sistemas, tecnologia e desenvolvimento de produtos digitais."
+          "Graduação voltada a engenharia de software, estruturas de dados, bancos de dados relacionais, sistemas distribuídos e desenvolvimento de aplicações web."
       }
     ]
   },
@@ -86,45 +85,83 @@ export const pt: TranslationDictionary = {
     eyebrow: "Trabalhos Selecionados",
     heading: "Projetos",
     description:
-      "Projetos selecionados com foco em usabilidade, apresentação visual e experiências web práticas.",
+      "Projetos públicos selecionados com foco no problema resolvido, arquitetura de dados e entrega prática.",
     liveDemoLabel: "Demo ao vivo",
     githubLabel: "GitHub",
-    noLiveDemoLabel: "Sem demo ao vivo",
+    noLiveDemoLabel: "Execução local",
     items: [
+      {
+        title: "Plafon",
+        description:
+          "Aplicação web de controle financeiro pessoal pensada para simplificar o registro de receitas, teto de gastos e assinaturas recorrentes. Construída com Next.js App Router, Supabase, Recharts e suporte bilíngue.",
+        liveDemoHref: "https://plafonn.vercel.app/",
+        githubHref: "https://github.com/jpgaliza/plafon",
+        image: plafonPreview,
+        imageAlt: "Preview da página inicial do Plafon",
+        tags: ["Next.js", "Supabase", "TypeScript", "Tailwind CSS"]
+      },
+      {
+        title: "Ranked11",
+        description:
+          "Jogo diário de trivia sobre Copas do Mundo com desafio sincronizado à meia-noite UTC e pontuação por distância. Desenvolvido em Next.js 15, TypeScript, dnd-kit e next-intl.",
+        liveDemoHref: "https://ranked11.vercel.app",
+        githubHref: "https://github.com/jpgaliza/Ranked11",
+        image: ranked11Preview,
+        imageAlt: "Preview da página inicial do Ranked11",
+        tags: ["Next.js 15", "TypeScript", "dnd-kit", "next-intl"]
+      },
+      {
+        title: "ATS Resume",
+        description:
+          "Editor de currículos local-first voltado à adequação para sistemas ATS sem expor dados pessoais na nuvem. Integra interface em React, API tipada com PostgreSQL e Drizzle, geração de PDF via Forme e endpoints compatíveis com Ollama.",
+        githubHref: "https://github.com/jpgaliza/ats-resume",
+        image: atsResumePreview,
+        imageAlt: "Preview do editor do ATS Resume",
+        tags: ["React 19", "TypeScript", "PostgreSQL", "Ollama / Local-First"]
+      },
+      {
+        title: "StudyRats",
+        description:
+          "Plataforma de organização de estudos com frontend em React integrado a uma API REST em Laravel. Ambiente conteinerizado com Docker, Traefik e PostgreSQL em topologia master e réplica.",
+        githubHref: "https://github.com/jpgaliza/StudyRats",
+        image: studyratsPreview,
+        imageAlt: "Preview da tela inicial do StudyRats",
+        tags: ["React", "Laravel", "PostgreSQL", "Docker"]
+      },
       {
         title: "DevRoast",
         description:
-          "Plataforma para analisar trechos de código com foco em praticidade e experiência do usuário.",
+          "Aplicação web para análise e revisão direta de trechos de código com foco em clareza de feedback e usabilidade. Desenvolvida em Next.js e TypeScript com deploy contínuo na Vercel.",
         liveDemoHref: "https://devroast-five.vercel.app/",
-        githubHref: "https://github.com/jpgaliza",
+        githubHref: "https://github.com/jpgaliza/devroast",
         image: devroastPreview,
         imageAlt: "Preview da página inicial do DevRoast",
-        tags: ["Full-Stack", "UX", "Análise de Código"]
+        tags: ["Next.js", "TypeScript", "Full-Stack", "UX"]
       },
       {
-        title: "Landing Page - Centro Cultural Mestre Noza",
+        title: "SoccerIQ",
         description:
-          "Landing page institucional desenvolvida para apresentar o Centro Cultural Mestre Noza de forma moderna e visualmente atrativa.",
-        githubHref: "https://github.com/jpgaliza",
-        image: mestreNozaPreview,
-        imageAlt: "Preview da Landing Page - Centro Cultural Mestre Noza",
-        tags: ["Landing Page", "Institucional", "UI Design"]
+          "Quiz interativo sobre futebol estruturado em arquitetura monolítica moderna com Laravel 12 no backend, Vue.js 3 com Inertia.js na camada de interface e persistência em MySQL.",
+        githubHref: "https://github.com/jpgaliza/SoccerIQ",
+        image: socceriqPreview,
+        imageAlt: "Preview da página inicial do SoccerIQ",
+        tags: ["Laravel 12", "PHP", "Vue.js 3", "Inertia.js"]
       }
     ]
   },
   contact: {
     eyebrow: "Entre em contato",
     heading: "Contato",
-    body: "Disponível para projetos, colaborações e oportunidades focadas em construir experiências digitais performáticas.",
+    body: "Disponível para conversar sobre desenvolvimento full-stack, projetos técnicos e oportunidades na área de software.",
     form: {
       nameLabel: "Seu nome",
       namePlaceholder: "Como devo te chamar?",
       subjectLabel: "Assunto",
       subjectPlaceholder: "Sobre o que você quer falar?",
-      messageLabel: "O que você quer enviar",
+      messageLabel: "Mensagem",
       messagePlaceholder: "Conte um pouco sobre sua ideia, projeto ou oportunidade.",
-      buttonLabel: "Entrar em Contato",
-      helperText: "O botão abre o Gmail com assunto e mensagem já preenchidos."
+      buttonLabel: "Enviar pelo Gmail",
+      helperText: "O botão abre o Gmail em uma nova aba com assunto e mensagem preenchidos."
     }
   }
 };
