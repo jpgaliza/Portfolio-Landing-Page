@@ -74,8 +74,8 @@ export const pt: TranslationDictionary = {
     items: [
       {
         degree: "Bacharelado em Sistemas de Informação",
-        institution: "Centro Universitário Paraíso (UniFAP), Crato, CE",
-        period: "2023 a Dez/2027 (Previsão)",
+        institution: "Centro Universitário Paraíso (UniFAP), Juazeiro do Norte, CE",
+        period: "2024 a Dez/2027 (Previsão)",
         description:
           "Graduação voltada a engenharia de software, estruturas de dados, bancos de dados relacionais, sistemas distribuídos e desenvolvimento de aplicações web."
       }

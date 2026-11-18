@@ -75,7 +75,7 @@ export const en: TranslationDictionary = {
       {
         degree: "B.S. in Information Systems",
         institution: "Centro Universitário Paraíso (UniFAP), Crato, CE",
-        period: "2023 to Dec 2027 (Expected)",
+        period: "2024 to Dec 2027 (Expected)",
         description:
           "Undergraduate program focused on software engineering, data structures, relational databases, distributed systems, and web application development."
       }
